@@ -74,25 +74,25 @@ module.exports = configure(function (ctx) {
       // https://v2.quasar.dev/quasar-cli-webpack/handling-webpack
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
       // chainWebpack (/* chain */) {}
-      extendWebpack(cfg) {
-        cfg.entry = path.resolve(__dirname, './.quasar/main.js')
-        cfg.plugins.push(
-          new ModuleFederationPlugin({
-            name: 'app_webiesmanacor',
-            filename: 'remoteEntry.js',
-            exposes: {},
-            remotes: {
-              app_common: `app_common@${process.env.APP_URL_COMMON}/remoteEntry.js`
-            },
-            shared: {
-              ...dependencies,
-            }
-          }),
-        );
-      },
-      chainWebpack (chain) {
-        chain.optimization.delete('splitChunks');
-      },
+      // extendWebpack(cfg) {
+      //   cfg.entry = path.resolve(__dirname, './.quasar/main.js')
+      //   cfg.plugins.push(
+      //     new ModuleFederationPlugin({
+      //       name: 'app_webiesmanacor',
+      //       filename: 'remoteEntry.js',
+      //       exposes: {},
+      //       remotes: {
+      //         app_common: `app_common@${process.env.APP_URL_COMMON}/remoteEntry.js`
+      //       },
+      //       shared: {
+      //         ...dependencies,
+      //       }
+      //     }),
+      //   );
+      // },
+      // chainWebpack (chain) {
+      //   chain.optimization.delete('splitChunks');
+      // },
       env: require('dotenv').config({ path: (process.env.CENTRE)?`.env.${process.env.CENTRE}`:`.env.dev` }).parsed,
       //env: require('dotenv').config({ path: `.env.dev` }).parsed,
     },
