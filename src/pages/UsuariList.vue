@@ -40,7 +40,7 @@
               <q-td :props="props">
                 <div>
                   <q-btn-group push>
-                    <q-btn icon="edit" color="primary" dense :to="'/apps/web/usuari/'+props.value">
+                    <q-btn icon="edit" color="primary" dense :to="'/usuari/'+props.value">
                       <q-tooltip>
                         Editar
                       </q-tooltip>

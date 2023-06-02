@@ -100,7 +100,7 @@ export default defineComponent({
       dialog.hide();
 
       //Redirect
-      await this.$router.push('/apps/web/usuaris');
+      await this.$router.push('/usuaris');
     }
   }
 })
