@@ -1,7 +1,7 @@
 import {Usuari} from "./Usuari";
 import {Departament} from "./Departament";
 
-export interface UsuariWebIesManacor {
+export interface UsuariProfessor {
   id?: number;
   nom: string;
   foto?: string;
@@ -11,7 +11,7 @@ export interface UsuariWebIesManacor {
   visible: boolean;
   professor?: Usuari;
   departament?: Departament;
-  substitut?: UsuariWebIesManacor;
+  substitut?: UsuariProfessor;
   horariAtencioPares?: string;
   tutoria?: string;
   label?: string;

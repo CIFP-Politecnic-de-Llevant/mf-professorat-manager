@@ -78,7 +78,7 @@ module.exports = configure(function (ctx) {
       //   cfg.entry = path.resolve(__dirname, './.quasar/main.js')
       //   cfg.plugins.push(
       //     new ModuleFederationPlugin({
-      //       name: 'app_webiesmanacor',
+      //       name: 'app_professorat-manager',
       //       filename: 'remoteEntry.js',
       //       exposes: {},
       //       remotes: {
@@ -229,7 +229,7 @@ module.exports = configure(function (ctx) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'webiesmanacor'
+        appId: 'professorat-manager'
       },
 
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain

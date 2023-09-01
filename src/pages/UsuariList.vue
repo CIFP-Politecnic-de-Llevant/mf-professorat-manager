@@ -57,16 +57,16 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue';
-import {UsuariWebIesManacorService} from "src/service/UsuariWebIesManacorService";
+import {UsuariProfessorService} from "src/service/UsuariProfessorService";
 import {QTableColumn} from "quasar";
-import {UsuariWebIesManacor} from "src/model/UsuariWebIesManacor";
+import {UsuariProfessor} from "src/model/UsuariProfessor";
 
 export default defineComponent({
   name: 'UsuariList',
   data() {
     return {
       columnes: [] as QTableColumn[],
-      usuaris: [] as UsuariWebIesManacor[],
+      usuaris: [] as UsuariProfessor[],
       filter: '',
     }
   },
@@ -174,7 +174,7 @@ export default defineComponent({
         }
       ]
 
-      const usuaris = await UsuariWebIesManacorService.findUsuaris();
+      const usuaris = await UsuariProfessorService.findUsuaris();
       this.usuaris = await Promise.all(usuaris);
     }
   },

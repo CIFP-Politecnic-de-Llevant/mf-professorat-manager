@@ -1,9 +1,9 @@
 {
-  "name": "webiesmanacor",
+  "name": "professoratmanager",
   "version": "0.0.1",
-  "description": "Web IES Manacor Departaments",
-  "productName": "Web IES Manacor",
-  "author": "jgalmes1@iesmanacor.cat",
+  "description": "Web Gestió del professorat",
+  "productName": "Professorat Manager",
+  "author": "jgalmes@politecnicllevant.cat",
   "private": true,
   "scripts": {
     "test": "echo \"No test specified\" && exit 0",

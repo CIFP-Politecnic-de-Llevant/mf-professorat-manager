@@ -45,16 +45,16 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import {UsuariWebIesManacor} from "src/model/UsuariWebIesManacor";
-import {UsuariWebIesManacorService} from "src/service/UsuariWebIesManacorService";
+import {UsuariProfessor} from "src/model/UsuariProfessor";
+import {UsuariProfessorService} from "src/service/UsuariProfessorService";
 
 
 export default defineComponent({
   name: 'UsuariForm',
   data() {
     return {
-      usuari: {} as UsuariWebIesManacor,
-      usuaris: [] as UsuariWebIesManacor[]
+      usuari: {} as UsuariProfessor,
+      usuaris: [] as UsuariProfessor[]
     }
   },
   async created() {
@@ -73,11 +73,11 @@ export default defineComponent({
 
       if(id && id!='') {
         console.log(id)
-        const usuari:UsuariWebIesManacor = await UsuariWebIesManacorService.getById(parseInt(id));
+        const usuari:UsuariProfessor = await UsuariProfessorService.getById(parseInt(id));
 
         this.usuari = usuari;
 
-        const usuaris = await UsuariWebIesManacorService.findUsuaris();
+        const usuaris = await UsuariProfessorService.findUsuaris();
         this.usuaris = await Promise.all(usuaris);
 
         if(this.usuari.substitut){
@@ -96,7 +96,7 @@ export default defineComponent({
         ok: false // we want the user to not be able to close it
       })
 
-      await UsuariWebIesManacorService.save(this.usuari)
+      await UsuariProfessorService.save(this.usuari)
       dialog.hide();
 
       //Redirect

@@ -25,13 +25,13 @@ export class DepartamentService {
   }
 
   static async generarScriptDepartament(id:number) {
-    await axios.post(process.env.API + '/api/webiesmanacor/departament/generarScript',{
+    await axios.post(process.env.API + '/api/professoratmanager/departament/generarScript',{
       id:id
     });
   }
 
   static async recuperarBackupScriptDepartament(id:number) {
-    await axios.post(process.env.API + '/api/webiesmanacor/departament/recuperarBackupScript',{
+    await axios.post(process.env.API + '/api/professoratmanager/departament/recuperarBackupScript',{
       id:id
     });
   }

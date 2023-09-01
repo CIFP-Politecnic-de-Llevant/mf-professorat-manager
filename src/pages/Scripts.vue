@@ -7,7 +7,7 @@
             <q-item v-for="departament in departaments">
               <q-item-section>
                 <p><strong>{{departament.nom}}</strong></p>
-                  <code>&lt;script defer type="text/javascript" crossorigin="anonymous" src="{{urlServer}}/api/webiesmanacor/public/loadDepartament/{{departament.id}}/script.js"&gt;&lt;/script&gt;</code>
+                  <code>&lt;script defer type="text/javascript" crossorigin="anonymous" src="{{urlServer}}/api/professoratmanager/public/loadDepartament/{{departament.id}}/script.js"&gt;&lt;/script&gt;</code>
               </q-item-section>
               <q-item-section avatar>
                 <q-btn-group>

@@ -1,6 +1,6 @@
-# Web IES Manacor (webiesmanacor)
+# Professorat Manager (professoratmanager)
 
-Web IES Manacor Departaments
+Gestió del professorat
 
 ## Install the dependencies
 ```bash

@@ -1,20 +1,20 @@
 import {axios} from "boot/axios";
-import {UsuariWebIesManacor} from "../model/UsuariWebIesManacor";
+import {UsuariProfessor} from "../model/UsuariProfessor";
 import {UsuariService} from "./UsuariService";
 import {DepartamentService} from "./DepartamentService";
 
-export class UsuariWebIesManacorService {
-  static async findUsuaris(): Promise<Array<UsuariWebIesManacor>> {
-    const responseUsers = await axios.get(process.env.API + '/api/webiesmanacor/usuari/llistat');
+export class UsuariProfessorService {
+  static async findUsuaris(): Promise<Array<UsuariProfessor>> {
+    const responseUsers = await axios.get(process.env.API + '/api/professoratmanager/usuari/llistat');
     const data = await responseUsers.data;
-    const usuaris:Array<UsuariWebIesManacor> = data.map((usuari: any): Promise<UsuariWebIesManacor> => {
+    const usuaris:Array<UsuariProfessor> = data.map((usuari: any): Promise<UsuariProfessor> => {
       return this.fromJSON(usuari).then(user=>{
         user.label = user.professor?.cognom1 + ' ' + user.professor?.cognom2 + ", " + user.professor?.nom;
         return user;
       })
     })
 
-    usuaris.sort((a: UsuariWebIesManacor, b: UsuariWebIesManacor) => {
+    usuaris.sort((a: UsuariProfessor, b: UsuariProfessor) => {
       if ((!a || !a.professor || !a.professor.nomComplet) && (!b || !b.professor || !b.professor.nomComplet)) {
         return 0;
       }
@@ -31,17 +31,17 @@ export class UsuariWebIesManacorService {
 
   }
 
-  static async getById(id:number): Promise<UsuariWebIesManacor> {
-    const response = await axios.get(process.env.API + '/api/webiesmanacor/usuari/getById/' + id);
+  static async getById(id:number): Promise<UsuariProfessor> {
+    const response = await axios.get(process.env.API + '/api/professoratmanager/usuari/getById/' + id);
     const data:any = await response.data;
     return this.fromJSON(data);
   }
 
-  static async save(usuari:UsuariWebIesManacor):Promise<void>{
-    await axios.post(process.env.API + '/api/webiesmanacor/usuari/desar',usuari);
+  static async save(usuari:UsuariProfessor):Promise<void>{
+    await axios.post(process.env.API + '/api/professoratmanager/usuari/desar',usuari);
   }
 
-  static async fromJSON(json:any):Promise<UsuariWebIesManacor>{
+  static async fromJSON(json:any):Promise<UsuariProfessor>{
     const professor = (json.professor)?await UsuariService.fromJSON(json.professor):undefined;
     return {
       id: json.idUsuari,
