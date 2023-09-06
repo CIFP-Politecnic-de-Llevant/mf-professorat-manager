@@ -9,7 +9,7 @@
       <q-input v-model="usuari.foto" label="Foto" class="col q-mr-lg" />
       <div class="col">
         <q-img
-          :src="'https://www.iesmanacor.cat/wp-content/uploads/FOTOS/'+usuari.foto"
+          :src="pathPhotos+usuari.foto"
           style="height: 140px; max-width: 150px"
           class="q-ml-lg"
         >
@@ -54,7 +54,8 @@ export default defineComponent({
   data() {
     return {
       usuari: {} as UsuariProfessor,
-      usuaris: [] as UsuariProfessor[]
+      usuaris: [] as UsuariProfessor[],
+      pathPhotos: process.env.APP_PATHPHOTOS_CONVALIDACIONS,
     }
   },
   async created() {

@@ -23,7 +23,7 @@
             <template v-slot:body-cell-foto="props">
               <q-td :props="props">
                 <q-img
-                  :src="'https://www.iesmanacor.cat/wp-content/uploads/FOTOS/'+props.value"
+                  :src="pathPhotos+props.value"
                   style="width: 50px"
                   class="q-ml-lg"
                 >
@@ -68,6 +68,7 @@ export default defineComponent({
       columnes: [] as QTableColumn[],
       usuaris: [] as UsuariProfessor[],
       filter: '',
+      pathPhotos: process.env.APP_PATHPHOTOS_CONVALIDACIONS
     }
   },
   created() {
