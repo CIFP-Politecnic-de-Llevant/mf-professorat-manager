@@ -14,7 +14,10 @@ export class UsuariProfessorService {
       })
     })
 
-    usuaris.sort((a: UsuariProfessor, b: UsuariProfessor) => {
+    const usuariResolved = await Promise.all(usuaris);
+
+
+    /*usuariResolved.sort((a: UsuariProfessor, b: UsuariProfessor) => {
       if ((!a || !a.professor || !a.professor.nomComplet) && (!b || !b.professor || !b.professor.nomComplet)) {
         return 0;
       }
@@ -25,9 +28,15 @@ export class UsuariProfessorService {
         return 1;
       }
       return a.professor.nomComplet.localeCompare(b.professor.nomComplet)
+    });*/
+
+    usuariResolved.sort((a: UsuariProfessor, b: UsuariProfessor) => {
+      const aNomComplet = (a.professor?.cognom1||'')+' '+(a.professor?.cognom2||'')+' '+(a.professor?.nom||'')
+      const bNomComplet = (b.professor?.cognom1||'')+' '+(b.professor?.cognom2||'')+' '+(b.professor?.nom||'')
+      return aNomComplet.localeCompare(bNomComplet)
     });
 
-    return usuaris;
+    return usuariResolved;
 
   }
 

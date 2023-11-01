@@ -78,8 +78,8 @@ export default defineComponent({
 
         this.usuari = usuari;
 
-        const usuaris = await UsuariProfessorService.findUsuaris();
-        this.usuaris = await Promise.all(usuaris);
+        this.usuaris = await UsuariProfessorService.findUsuaris();
+        //this.usuaris = await Promise.all(usuaris);
 
         if(this.usuari.substitut){
           this.usuari.substitut = this.usuaris.find(u=>u.id===this.usuari.substitut?.id)
