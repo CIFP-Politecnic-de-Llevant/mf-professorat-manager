@@ -9,14 +9,14 @@ export class UsuariService {
       return await this.fromJSON(usuari)
     }))
     //return usuaris;
-    return await usuaris.sort((a:Usuari,b:Usuari)=>{
-      if( (!a || !a.label) && (!b || !b.label) ){
+    return usuaris.sort((a: Usuari, b: Usuari) => {
+      if ((!a || !a.label) && (!b || !b.label)) {
         return 0;
       }
-      if(!a || !a.label){
+      if (!a || !a.label) {
         return -1;
       }
-      if(!b || !b.label){
+      if (!b || !b.label) {
         return 1;
       }
       return a.label.localeCompare(b.label)
